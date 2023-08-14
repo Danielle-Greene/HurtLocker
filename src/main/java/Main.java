@@ -1,5 +1,8 @@
 import org.apache.commons.io.IOUtils;
+
+import javax.swing.text.html.parser.Parser;
 import java.io.IOException;
+import java.sql.SQLOutput;
 
 public class Main {
 
@@ -10,8 +13,15 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception{
+        ParsingThrough parser = new ParsingThrough();
         String output = (new Main()).readRawDataToString();
-        System.out.println(output);
+        String[] outputArray = output.split("##");
+        parser.arrayToString(outputArray);
+
+        for(String items : outputArray){
+            String[] singleArray = items.split("A - Za - z0 - 9./");
+        }
 
     }
+
 }
